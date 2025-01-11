@@ -452,10 +452,10 @@ Open.BorderSizePixel = 0
 Open.Size = UDim2.new(2, 5, 2, 5)
 Open.Active = true
 Open.Draggable = true
-Open.Image = "rbxassetid://77240230517276"
+Open.Image = "rbxassetid://99479386825667"
 Open.MouseButton1Click:Connect(function()
   Main.Visible = not Main.Visible
-  Open.Image = Main.Visible and "rbxassetid://83740580023620" or "rbxassetid://99479386825667" --开关的图
+  Open.Image = Main.Visible and "rbxassetid://99479386825667" or "rbxassetid://83740580023620" --开关的图
 end)
 
 UICorner_2.CornerRadius = UDim.new(0, 90)
@@ -484,7 +484,7 @@ UIG.Parent = Open
         TabIco.BackgroundTransparency = 1.000
         TabIco.BorderSizePixel = 0
         TabIco.Size = UDim2.new(0, 24, 0, 24)
-        TabIco.Image = "rbxassetid://99479386825667" or icon and "rbxassetid://"..icon
+        TabIco.Image = "rbxassetid://7734068321" or icon and "rbxassetid://"..icon
         TabIco.ImageTransparency = 0.2
         
         TabText.Name = "TabText"
@@ -531,7 +531,7 @@ UIG.Parent = Open
         end)
 ------------------------------------------------------AL.King音乐-------------------------------------------------------
     local sound = Instance.new("Sound")
-    sound.SoundId = "rbxassetid://" --音乐id
+    sound.SoundId = "rbxassetid://6797864253" --音乐id
     sound.Parent = game.Workspace
     sound:Play()
 ---------------分割线-------------------------------分割线-------------------------------分割线----------------
