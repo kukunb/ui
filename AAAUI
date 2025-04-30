@@ -449,17 +449,40 @@ Frame.BackgroundTransparency = 1.000
 UICorner.CornerRadius = UDim.new(0, 90)
 UICorner.Parent = Frame
 
+-- 方形开关按钮，四边圆角，支持图片ID
+local Open = Instance.new("TextButton")
+Open.Name = "Open"
 Open.Parent = Frame
-Open.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Open.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Open.BackgroundColor3 = Color3.fromRGB(139, 0, 255) -- 设置按钮背景颜色
 Open.BorderSizePixel = 0
-Open.Size = UDim2.new(0, 50, 0, 50)
+Open.Position = UDim2.new(0.5, -25, 0.5, -16) -- 居中显示
+Open.Size = UDim2.new(0, 50, 0, 32) -- 设置为方形
+Open.Font = Enum.Font.GothamSemibold
+Open.Text = "开关"
+Open.TextColor3 = Color3.fromRGB(255, 255, 255) -- 设置文字颜色
+Open.TextSize = 14.000
 Open.Active = true
 Open.Draggable = true
-Open.Image = "rbxassetid://97597980385934"
+
+-- 添加圆角
+local UICornerOpen = Instance.new("UICorner")
+UICornerOpen.CornerRadius = UDim.new(0, 10) -- 设置圆角大小为 10
+UICornerOpen.Parent = Open
+
+-- 添加图片
+local ImageLabel = Instance.new("ImageLabel")
+ImageLabel.Name = "ImageLabel"
+ImageLabel.Parent = Open
+ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.Position = UDim2.new(0.5, -16, 0.5, -16) -- 居中显示图片
+ImageLabel.Size = UDim2.new(0, 32, 0, 32) -- 图片大小
+ImageLabel.Image = "rbxassetid://97597980385934" -- 替换为你的图片ID
+
+-- 开关逻辑
 Open.MouseButton1Click:Connect(function()
   Main.Visible = not Main.Visible
-  Open.Image = Main.Visible and "rbxassetid://97597980385934" or "rbxassetid://97597980385934" --开关的图
+  Open.Text = Main.Visible and "关闭" or "打开" -- 根据状态切换文字
+  ImageLabel.Image = Main.Visible and "rbxassetid://97597980385934" or "rbxassetid://97597980385934" -- 根据状态切换图片
 end)
 
 UICorner_2.CornerRadius = UDim.new(0, 90)
