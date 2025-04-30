@@ -271,8 +271,10 @@ end
       Side.Position = UDim2.new(1, 0, 0, 0)
       Side.Size = UDim2.new(0, 110, 0, 353)
       Side.Transparency = 1.0
+
       local UICornerSide = Instance.new("UICorner")
-      UICornerSide.CornerRadius = UDim.new(0, 10)UICornerSide.Parent = Side      
+      UICornerSide.CornerRadius = UDim.new(0, 10)
+      UICornerSide.Parent = Side      
 
       SideG.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, zyColor), ColorSequenceKeypoint.new(1.00, zyColor)}
       SideG.Rotation = 90
@@ -488,10 +490,10 @@ UIG.Parent = Open
         TabIco.Size = UDim2.new(0, 24, 0, 24)
         TabIco.Image = "rbxassetid://7734068321" or icon and "rbxassetid://"..icon
         TabIco.ImageTransparency = 0.2
+
         local UICornerTabIco = Instance.new("UICorner")
-        UICornerTabIco.CornerRadius = UDim.new(0, 10) 
-        UICornerTabIco.Parent = TabIco
-        
+        UICornerTabIco.CornerRadius = UDim.new(0, 10) -- 设置圆角大小为 10
+        UICornerTabIco.Parent = TabIco        
         TabText.Name = "TabText"
         TabText.Parent = TabIco
         TabText.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
@@ -516,6 +518,7 @@ UIG.Parent = Open
         TabBtn.Text = ""
         TabBtn.TextColor3 = Color3.fromRGB(0, 0, 0)
         TabBtn.TextSize = 14.000
+
         local UICornerTabBtn = Instance.new("UICorner")
         UICornerTabBtn.CornerRadius = UDim.new(0, 10)
         UICornerTabBtn.Parent = TabBtn
@@ -634,45 +637,45 @@ UIG.Parent = Open
     
           local section = {}
           function section.Button(section, text, callback)
-            local callback = callback or function() end
-    
-            local BtnModule = Instance.new("Frame")
-            local Btn = Instance.new("TextButton")
-            local BtnC = Instance.new("UICorner")    
-            
-            BtnModule.Name = "BtnModule"
-            BtnModule.Parent = Objs
-            BtnModule.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
-            BtnModule.BackgroundTransparency = 1.000
-            BtnModule.BorderSizePixel = 0
-            BtnModule.Position = UDim2.new(0, 0, 0, 0)
-            BtnModule.Size = UDim2.new(0, 428, 0, 38)
-            BtnModule.Transparency = 0.75
-            
-            Btn.Name = "Btn"
-            Btn.Parent = BtnModule
-            Btn.BackgroundColor3 = zyColor
-            Btn.BorderSizePixel = 0
-            Btn.Size = UDim2.new(0, 428, 0, 38)
-            Btn.AutoButtonColor = false
-            Btn.Font = Enum.Font.GothamSemibold
-            Btn.Text = "   " .. text
-            Btn.TextColor3 = ALcolor
-            Btn.TextSize = 16.000
-            Btn.TextXAlignment = Enum.TextXAlignment.Left
-            Btn.BackgroundTransparency = ALTransparency
-            
-            BtnC.CornerRadius = UDim.new(0, 10)
-            BtnC.Name = "BtnC"
-            BtnC.Parent = Btn
-    
-            Btn.MouseButton1Click:Connect(function()
-                spawn(function()
-                    Ripple(Btn)
-                end)
-                    spawn(callback)
-                end)
-            end
+              local callback = callback or function() end
+
+              local BtnModule = Instance.new("Frame")
+              local Btn = Instance.new("TextButton")
+              local BtnC = Instance.new("UICorner")    
+
+              BtnModule.Name = "BtnModule"
+              BtnModule.Parent = Objs
+              BtnModule.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+              BtnModule.BackgroundTransparency = 1.000
+              BtnModule.BorderSizePixel = 0
+              BtnModule.Position = UDim2.new(0, 0, 0, 0)
+              BtnModule.Size = UDim2.new(0, 428, 0, 38)
+              BtnModule.Transparency = 0.75
+
+              Btn.Name = "Btn"
+              Btn.Parent = BtnModule
+              Btn.BackgroundColor3 = zyColor
+              Btn.BorderSizePixel = 0
+              Btn.Size = UDim2.new(0, 428, 0, 38)
+              Btn.AutoButtonColor = false
+              Btn.Font = Enum.Font.GothamSemibold
+              Btn.Text = "   " .. text
+              Btn.TextColor3 = ALcolor
+              Btn.TextSize = 16.000
+              Btn.TextXAlignment = Enum.TextXAlignment.Left
+              Btn.BackgroundTransparency = ALTransparency
+
+              BtnC.CornerRadius = UDim.new(0, 10)
+              BtnC.Name = "BtnC"
+              BtnC.Parent = Btn
+
+              Btn.MouseButton1Click:Connect(function()
+                  spawn(function()
+                      Ripple(Btn)
+                  end)
+                  spawn(callback)
+              end)
+          end
     
         function section:Label(text)
           local LabelModule = Instance.new("Frame")
